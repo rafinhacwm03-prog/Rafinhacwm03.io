@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python para Negócios Locais - Guia Gratuito</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            padding: 30px 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 15px;
+            background: #ffd43b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-img svg {
+            width: 70px;
+            height: 70px;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section h2 {
+            color: #3498db;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .script {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+        
+        .script h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .script pre {
+            background: #2c3e50;
+            color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .feature i {
+            font-size: 40px;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+        
+        .feature h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .testimonial {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial .author {
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #3498db;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: #ffd43b;
+            color: #2c3e50;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 25px 15px;
+            }
+            
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="profile-img">
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M50,15 C30,15 20,30 20,45 C20,60 30,70 45,70 C50,70 55,68 58,65 L58,55 C55,57 52,58 48,58 C40,58 35,53 35,45 C35,37 40,32 48,32 C55,32 60,36 60,43 L60,50 L45,50 L45,55 L67,55 L67,43 C67,30 62,22 53,18 C52,17 51,17 50,17 Z M48,40 C44,40 42,42 42,45 C42,48 44,50 48,50 C52,50 54,48 54,45 C54,42 52,40 48,40 Z" fill="#3498db"/>
+                </svg>
+            </div>
+            <h1>Python para Negócios Locais</h1>
+            <p>Guia Gratuito e Scripts Prontos para Usar</p>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>📚 Guia Gratuito: Python para Negócios Locais</h2>
+                <p>Baixe nosso guia completo e aprenda como usar Python para alavancar seu negócio local, encontrar clientes e superar concorrentes.</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Scripts Prontos</h3>
+                        <p>Use nossos scripts imediatamente</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Aumente Suas Vendas</h3>
+                        <p>Técnicas comprovadas de automação</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-users"></i>
+                        <h3>Encontre Clientes</h3>
+                        <p>Descubra novos clientes potencialmente</p>
+                    </div>
+                </div>
+                
+                <a href="#" class="btn"><i class="fas fa-download"></i> Baixar Guia Completo (PDF)</a>
+            </div>
+            
+            <div class="section">
+                <h2>🚀 Scripts Exclusivos</h2>
+                <p>Confira alguns dos scripts que você vai encontrar no nosso guia completo:</p>
+                
+                <div class="script">
+                    <h3>🔍 Encontrar Clientes Potenciais</h3>
+                    <p>Script para buscar clientes em potencial nas redes sociais:</p>
+                    <pre>
+# Buscador de clientes em redes sociais
+import requests
+import pandas as pd
+
+def buscar_clientes(palavras_chave, localizacao):
+    # Configurar API (exemplo simplificado)
+    api_key = "SUA_CHAVE_API"
+    url = f"https://api.redesocial.com/busca?q={palavras_chave}&location={localizacao}&key={api_key}"
+    
+    response = requests.get(url)
+    dados = response.json()
+    
+    # Processar resultados
+    clientes_potenciais = []
+    for item in dados['resultados']:
+        cliente = {
+            'nome': item['nome'],
+            'perfil': item['link'],
+            'segmento': item['categoria']
+        }
+        clientes_potenciais.append(cliente)
+    
+    return pd.DataFrame(clientes_potenciais)
+
+# Usar a função
+df_clientes = buscar_clientes("restaurante", "São Paulo")
+df_clientes.to_csv('clientes_potenciais.csv', index=False)
+print("Clientes encontrados e salvos com sucesso!")
+                    </pre>
+                </div>
+                
+                <div class="script">
+                    <h3>📊 Analisar Concorrentes</h3>
+                    <p>Script para analisar os concorrentes e identificar oportunidades:</p>
+                    <pre>
+# Analisador de concorrentes
+from selenium import webdriver
+from bs4 import BeautifulSoup
+import time
+
+def analisar_concorrentes(termo_busca):
+    # Configurar navegador
+    driver = webdriver.Chrome()
+    driver.get(f"https://www.google.com/search?q={termo_busca}")
+    
+    # Esperar carregar
+    time.sleep(3)
+    
+    # Extrair dados
+    html = driver.page_source
+    soup = BeautifulSoup(html, 'html.parser')
+    
+    resultados = []
+    for item in soup.find_all('div', class_='g'):
+        try:
+            titulo = item.find('h3').text
+            link = item.find('a')['href']
+            descricao = item.find('span', class_='aCOpRe').text
+            
+            resultados.append({
+                'titulo': titulo,
+                'link': link,
+                'descricao': descricao
+            })
+        except:
+            continue
+    
+    driver.quit()
+    return resultados
+
+# Usar a função
+concorrentes = analisar_concorrentes("mercado+organic+SP")
+for i, concorrente in enumerate(concorrentes[:5]):
+    print(f"{i+1}. {concorrente['titulo']}")
+    print(f"   Link: {concorrente['link']}")
+    print()
+                    </pre>
+                </div>
+                
+                <div class="script">
+                    <h3>📧 Automação de Marketing</h3>
+                    <p>Script para automatizar campanhas de e-mail marketing:</p>
+                    <pre>
+# Automatizador de e-mails
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+def enviar_email(destinatario, assunto, corpo):
+    # Configurar e-mail
+    remetente = "seu_email@gmail.com"
+    senha = "sua_senha_app"  # Use senha de app
+    
+    # Criar mensagem
+    msg = MIMEMultipart()
+    msg['From'] = remetente
+    msg['To'] = destinatario
+    msg['Subject'] = assunto
+    
+    msg.attach(MIMEText(corpo, 'html'))
+    
+    # Enviar e-mail
+    try:
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login(remetente, senha)
+        server.send_message(msg)
+        server.quit()
+        print(f"E-mail enviado para {destinatario}")
+        return True
+    except Exception as e:
+        print(f"Erro ao enviar e-mail: {e}")
+        return False
+
+# Lista de clientes (exemplo)
+clientes = [
+    {"email": "cliente1@email.com", "nome": "João"},
+    {"email": "cliente2@email.com", "nome": "Maria"}
+]
+
+# Enviar e-mail para cada cliente
+for cliente in clientes:
+    assunto = "Oferta Especial para Você!"
+    corpo = f"""
+    &lt;html&gt;
+    &lt;body&gt;
+        &lt;h2&gt;Olá {cliente['nome']}!&lt;/h2&gt;
+        &lt;p&gt;Temos uma oferta especial exclusiva para você.&lt;/p&gt;
+        &lt;p&gt;Venha conhecer nossos produtos com &lt;strong&gt;20% de desconto&lt;/strong&gt;!&lt;/p&gt;
+        &lt;br&gt;
+        &lt;p&gt;Atenciosamente,&lt;br&gt;Sua Equipe&lt;/p&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    """
+    
+    enviar_email(cliente['email'], assunto, corpo)
+                    </pre>
+                </div>
+                
+                <a href="#" class="btn"><i class="fas fa-code"></i> Acessar Todos os Scripts</a>
+            </div>
+            
+            <div class="section">
+                <h2>⭐ Depoimentos</h2>
+                
+                <div class="testimonial">
+                    <p>"Os scripts de Python revolucionaram meu negócio. Consegui aumentar em 40% minha base de clientes em apenas 2 meses!"</p>
+                    <p class="author">- Carlos Silva, Dono de Restaurante</p>
+                </div>
+                
+                <div class="testimonial">
+                    <p>"Finalmente consegui automatizar meus processos de marketing. O guia é claro e os scripts são fáceis de adaptar."</p>
+                    <p class="author">- Mariana Oliveira, Proprietária de Loja</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>📥 Como Baixar</h2>
+                <p>Para baixar o guia completo e todos os scripts, basta clicar no botão abaixo e preencher o formulário com seu nome e e-mail.</p>
+                
+                <a href="#" class="btn"><i class="fas fa-file-download"></i> Quero Baixar o Guia Agora!</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <h3>Python Milionário</h3>
+            <p>Python prático para negócios locais</p>
+            
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab-youtube"></i></a>
+                <a href="#" class="social-link"><i class="fab-tiktok"></i></a>
+                <a href="#" class="social-link"><i class="fab-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab-whatsapp"></i></a>
+            </div>
+            
+            <p>Email: telamilionaria@gmail.com</p>
+            <p>© 2023 Python Milionário - Todos os direitos reservados</p>
+        </div>
+    </div>
+    
+    <script>
+        // Simulação de download
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                e.preventDefault();
+                alert('Em um cenário real, este botão levaria para uma página de captura ou download direto do arquivo.');
+            });
+        });
+    </script>
+</body>
+</html>
